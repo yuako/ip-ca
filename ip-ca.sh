@@ -17,7 +17,7 @@ function create() {
     keytool -exportcert -alias "$ip" -storepass $pwd -keystore $dir/"$ip".keystore -file $dir/"$ip".cer
 
     keytool -importkeystore -srckeystore $dir/"$ip".keystore -destkeystore $dir/"$ip".p12 -srcstoretype jks -deststoretype pkcs12
-
+    openssl pkcs12 -nocerts -nodes -in $dir/"$ip".p12 -out $dir/"$ip".key
     echo -e ">>> The certificate file used by nginx is being generated"
     openssl pkcs12 -in $dir/"$ip".p12 -nokeys -clcerts -out $dir/"$ip".ssl.crt
     openssl pkcs12 -in $dir/"$ip".p12 -nokeys -cacerts -out $dir/"$ip".ca.crt
