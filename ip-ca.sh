@@ -3,7 +3,7 @@
 dir="keystore"
 pwd="changeit"
 ou="yuako"
-cacerts="$JAVA_HOME"/lib/security/cacerts
+cacerts="$JAVA_HOME"/jre/lib/security/cacerts
 
 read -p ">>> Self-signed IP certificate, please enter the IP address: " ip
 
